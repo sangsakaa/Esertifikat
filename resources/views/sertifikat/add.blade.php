@@ -4,7 +4,6 @@
       {{ __('Dashboard') }}
     </h2>
   </x-slot>
-
   <div class="p-4">
     <div class="">
       <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

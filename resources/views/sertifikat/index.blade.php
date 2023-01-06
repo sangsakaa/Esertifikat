@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="w-full overflow-x-scroll">
-            <table class="w-full border-collapse ">
+            <table class="w-full border-collapse  ">
               <thead class="bg-grey-lighter">
                 <tr class=" text-xs">
                   <th class="w-10 border px-4 py-2">No</th>
@@ -44,14 +44,15 @@
                 </tr>
               </thead>
               <tbody>
+                @if($dataSertifikat->count() != null)
                 @foreach ($dataSertifikat as $s)
                 <tr class="hover:bg-grey-lighter text-xs even:bg-gray-100">
                   <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                   <td class="border px-4 py-2">{{ $s->id }}</td>
                   <td class="border px-4 py-2">{{ $s->judul_sertifikat }}</td>
                   <td class="border px-4 py-2">{{ $s->nama_peserta }}</td>
-                  <td class="border px-4 py-2">{{ $s->nomor_sertifikat }}</td>
-                  <td class="border px-4 py-2">{{ $s->tanggal_keluar }}</td>
+                  <td class="border px-4 py-2 text-center">{{ $s->nomor_sertifikat }}</td>
+                  <td class="border px-4 py-2 text-center">{{ $s->tanggal_keluar }}</td>
                   <td class="border px-4 py-2">{{ $s->tempat_kegiatan }}</td>
                   <td class="border px-4 py-2">{{ $s->penyelenggara }}</td>
                   <td class="border px-4 py-2"><a href="{{ asset('files/'.$s->file) }}" target="_blank" class="text-blue-500 hover:text-blue-800">Lihat</a></td>
@@ -66,13 +67,16 @@
                   </td>
                 </tr>
                 @endforeach
+                @else
+                <tr class=" border">
+                  <td class=" text-red-600 text-center" colspan="11">
+                    Tidak ada data yang ditemukan
+                  </td>
+                </tr>
+                @endif
               </tbody>
             </table>
           </div>
-
-
-
-
         </div>
       </div>
     </div>

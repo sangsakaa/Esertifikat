@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SertifikatController;
 use Illuminate\Support\Facades\Route;
@@ -18,11 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -34,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('sertifikat/download/{id}', [SertifikatController::class, 'download'])->name('sertifikat.download');
     Route::get('sertifikat/download/{id}', [SertifikatController::class, 'download'])->name('sertifikat.download');
     Route::delete('sertifikat/{sertifikat}', [SertifikatController::class, 'destroy']);
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
 require __DIR__ . '/auth.php';
