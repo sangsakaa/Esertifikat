@@ -26,7 +26,7 @@
               </form>
             </div>
           </div>
-          <div class="w-full overflow-x-scroll">
+          <div class="w-full overflow-x-scroll fixed-top">
             <table class="w-full border-collapse  ">
               <thead class="bg-grey-lighter">
                 <tr class=" text-xs">
