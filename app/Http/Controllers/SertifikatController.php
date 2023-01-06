@@ -13,8 +13,6 @@ class SertifikatController extends Controller
     {
 
         $dataSertifikat  = Sertifikat::all();
-
-
         $cari = $request->cari;
         $dataSertifikat = Sertifikat::where('judul_sertifikat', 'like', "%$cari%")
             ->orWhere('tanggal_keluar', 'like', "%$cari%")
